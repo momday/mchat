@@ -1,0 +1,45 @@
+//@import "kube/less/kube.import.less";
+@import "mrmrs-colors/less/colors.import.less";
+
+
+
+body {
+    padding: 10px;
+}
+
+
+.grid-stack-item-content {
+    padding: 2px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 2px;
+    border-width: 1px;
+    overflow: auto;
+}
+
+.grid-stack-inner {
+    height: 120px;
+
+}
+
+.grid-stack-header {
+
+    position: relative;
+    top: 0px;
+
+    border-style: solid;
+    border-color: black;
+    border-radius: 2px;
+    border-width: 1px;
+}
+.grid-stack-bottom {
+
+    position: relative;
+    bottom: 0px;
+
+    border-style: solid;
+    border-color: black;
+    border-radius: 2px;
+    border-width: 1px;
+}
+
