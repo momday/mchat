@@ -60,9 +60,10 @@ a meteor app:
 4. Packaging (coming soon)
 
 I've purposely added a LOT of comments to the code for new learner to understand 
-going on.  
+what's going on.  
 
-Please feel free to point me to any coding mistakes or highlight any bugs.
+Please feel free to point me to any coding mistakes or highlight any bugs or contribute.  
+
 Thanks.
 
 ## Requirement
