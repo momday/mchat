@@ -28,6 +28,7 @@ scroll down the chatroom to the last message.
 
 Template.chatroom.rendered = function() {
 
+
     // Scroll down the chatroom to the last message when it's renedered.
     var innerId = '#'+this.data._id+'-inner-content';
     var scr = $(innerId)[0].scrollHeight;
@@ -46,5 +47,16 @@ Template.chatroom.rendered = function() {
         grid.add_widget(el, 0, 0, 4, 5, true);
     }
 }
+
+Template.chatroom.events({
+    'resizestop': function(event, ui) {
+        console.log('resize');
+        /*console.log(event);
+          console.log(ui);*/
+
+         adjustGridStackContent("#" + this._id);
+
+    }
+})
 
 

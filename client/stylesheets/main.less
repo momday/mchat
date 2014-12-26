@@ -10,43 +10,42 @@ body {
 
 .grid-stack-item-content {
     padding: 2px;
-    border-style: solid;
-    border-color: black;
+    border: 1px solid black;
     border-radius: 2px;
-    border-width: 1px;
-
 }
 
-.grid-stack-inner-content {
+
+.grid-stack-item-content .header{
+    position: relative;
+    /*top: 0px;*/
+    /*height: 10%;*/
+
+    padding: inherit;
+    border: inherit;
+    border-radius: inherit;
+}
+
+.grid-stack-item-content .content {
+    
     position: relative;
     overflow: auto; 
-    height: 80%;
+    /*height: 80%;*/
 
-    border-style: solid;
-    border-color: black;
-    border-radius: 2px;
-    border-width: 1px;
+    padding: inherit;
+    border: inherit;
+    border-radius: inherit;
+
+
 }
 
-.grid-stack-header {
-    position: relative;
-    top: 0px;
-
-    border-style: solid;
-    border-color: black;
-    border-radius: 2px;
-    border-width: 1px;
-}
-
-.grid-stack-bottom {
+.grid-stack-item-content .tail {
 
     position: relative;
-    bottom: 0px;
-    height: 10%;
+    /*bottom: 0px;
+    height: 10%;*/
 
-    border-style: solid;
-    border-color: black;
-    border-radius: 2px;
-    border-width: 1px;
+    padding: inherit;
+    border: inherit;
+    border-radius: inherit;
 }
 
