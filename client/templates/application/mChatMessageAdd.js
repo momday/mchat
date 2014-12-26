@@ -1,7 +1,3 @@
-/*Template.chatMessageAdd.created = function() {
-  Session.set('chatMessageAddErrors', {});
-}*/
-
 Template.addChat.helpers({
   /*errorMessage: function(field) {
     return Session.get('chatMessageAddErrors')[field];
@@ -16,29 +12,29 @@ Template.addChat.events({
   'submit form': function(e, template) {
     e.preventDefault();
 
+    //console.log(template);
+
+    // Use jquery to get the value that's been entered.
     var $body = $(e.target).find('[name=body]');
-    console.log('data ' + template.data._id);
+
+    //console.log('data ' + template.data._id);
+
+    // Save the content into a message object.
     var message = {
       message: $body.val(),
       chatroomId: template.data._id,
+      // this needs to be saved as it is used to create
+      // the message unique id
       totalMessages: template.data.totalMessages
     };
 
-    /*var errors = {};
-    if (! message.body) {
-      errors.body = "Please write some content";
-      return Session.set('chatMessageAddErrors', errors);
-    }*/
-
+    // Call the 'addMessage' server side method
     Meteor.call('addMessage', message, function(error, messageId) {
       if (error){
         throwError(error.reason);
       } else {
+        // Reset the form message.
         $body.val('');
-
-        var scr = $('.grid-stack-inner-content')[0].scrollHeight;
-        $('.grid-stack-inner-content').animate({scrollTop: scr});
-
       }
     });
   }

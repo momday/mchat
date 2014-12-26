@@ -1,36 +1,45 @@
 ## Synopsis
 
-This is my meteor boiler plate.
-Meteor with the following packages:
+This is an experimental attempt to build a multi-chatroom application using the meteor framework.  
+It is a Bootstrap-styled application but rely on gridstack.js for the layout.
 
-1. accounts-password            Password support for accounts
-2. anti:fake                    Random text and data generator
-3. autopublish                  Publish the entire database to all clients
-4. ian:accounts-ui-bootstrap-3  * Bootstrap-styled accounts-ui with multi-language support.
-5. less                         The dynamic stylesheet language
-6. meteor-platform              Include a standard set of Meteor packages in your ap
+
+It comes with the following Meteor packages:
+
+1. accounts-password
+2. anti:fake
+3. mizzao:bootstrap-3
+4. ian:accounts-ui-bootstrap-3
+5. less
+6. momentjs:moment
 7. iron:router
 8. pfafman:font-awesome-4
+9. sacha:spin
 
-The "insecure" package was removed and the basic tree folder is as followed:
+In addition, externals plugins/tools are used:
 
-This boilerplate is based on kube css framework and uses mrmrs-colors stylesheets.
-The less source code being located in the sub-directory of the stylesheets.
+1. Gridstack.js     [(http://troolee.github.io/gridstack.js)](http://troolee.github.io/gridstack.js/)
+2. animate.css      [(http://daneden.me/animate)](http://daneden.me/animate)
+3. colors           [(https://github.com/mrmrs/colors)](https://github.com/mrmrs/colors)
+
+The basic tree folder is as followed:
 
 <pre>
-├── client
+── client
+│   ├── helpers
 │   ├── js
+│   ├── lib
+│   │   └── gridstack
 │   ├── stylesheets
 │   │   ├── animate
-│   │   ├── kube
-│   │   │   ├── js
-│   │   │   └── less
-│   │   ├── mrmrs-colors
-│   │   └── normalize
+│   │   └── mrmrs-colors
+│   │       └── less
 │   └── templates
+│       ├── application
 │       ├── includes
 │       └── site
 ├── lib
+│   └── collections
 ├── packages
 ├── public
 │   ├── fonts
@@ -40,17 +49,41 @@ The less source code being located in the sub-directory of the stylesheets.
 
 ## Motivation
 
-As I don't like to redo the same steps over and over when starting a meteor
-project, here is the basic of what I need.
+I kinda fell in love with Meteor and wanted to create an application using
+that framework.  
+More of a learning experience, this web app includes all the fundamental element of
+a meteor app:
+
+1. Routing
+2. Template
+3. Publish / Subscription
+4. Packaging (coming soon)
+
+I've purposely added a LOT of comments to the code for new learner to understand 
+going on.  
+
+Please feel free to point me to any coding mistakes or highlight any bugs.
+Thanks.
+
+## Requirement
+
+1. Meteor [(https://www.meteor.com/install)](https://www.meteor.com/install)
 
 ## Installation
 
-Just clone it and start developing.
-Best to have meteor installed before hand.
+Just clone it and run the command meteor in the terminal  
+> meteor
+
+or if the default port (3000) is taken...  
+
+> meteor --port 9000  
+
+or any other available port number
 
 ## Contributors
 
-Momday
+Me and ... you?
 
 ## License
+
 This is licensed under the MIT license. (http://opensource.org/licenses/MIT)

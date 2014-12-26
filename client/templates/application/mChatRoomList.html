@@ -1,10 +1,13 @@
+<!-- This template will iterate through all the chatrooms provided
+     by chatroomList helper ('chatrooms') and in turn, display them using
+     the template {{> chatroom}} -->
+
 <template name="chatroomList">
 
- {{#each chatrooms}}
+     {{#each chatrooms}}
 
-      {{> chatroom}}
+          {{> chatroom}}
 
- {{/each}}
-
+     {{/each}}
 
 </template>

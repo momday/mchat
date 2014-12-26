@@ -1,27 +1,51 @@
+<!--This template is the actual representation of a chatroom.
+    It is encapsulated into a grid-stack-item and as such can be moved around
+    and resized at will.
+    Each grid-stack-item is composed of:
+        - a header element: Showing the title and other status of the chatroom.
+        - a body element: To display all the messages.
+        - a bottom element: To display the text area to input new messages.
+-->
 
 <template name='chatroom'>
-
-
-                <div class="grid-stack-item" 
-                    data-gs-x="0" data-gs-y="0" 
-                    data-gs-width="4" data-gs-height="5"
-                    data-gs-auto-position=true
-                    >
+                <!-- Default grid-stack-item size of 4x5
+                     with automatic positioning.
+                     This element is given the _id of the chatroom object-->
+                <div class="grid-stack-item" data-gs-width="4"
+                     data-gs-height="5" data-gs-auto-position=true 
+                     id='{{_id}}'>
                     <div class="grid-stack-item-content">
+                        <!--header-->
                         <div class="grid-stack-header">
                             <p>{{hashTag}}</p>
                         Created by: {{owner}}
                         </div>
 
-
-                        <div class="grid-stack-inner-content">
+                        <!--body-->
+                        <!--
+                            This body is referenced by a UNIQUE id made of the
+                            chatroom _id concatenated with "-inner-content"
+                            This id is called by the template rendered callback.
+                        -->
+                        <div class="grid-stack-inner-content" 
+                             id='{{_id}}-inner-content'>
+                        <!-- The chat history is provided by the helper 
+                             'messages'.
+                             By design the chat history is an array of messages 
+                             embedded into a field of the chatroom document.
+                             The 'messages' helper just returns that array. -->
                             {{#each messages}}
-                            {{> chatMessage}}
+                                <!--For each message in the chat history,
+                                display each message using 
+                                the chatMessage template-->
+                                {{> chatMessage }}
                             {{/each}}
 
                         </div>
 
+                        <!-- bottom -->
                         <div class="grid-stack-bottom">
+                            <!--Displaying the addChat template-->
                             {{> addChat}}
                         </div>
                     </div>

@@ -3,3 +3,9 @@ Template.chatroomList.helpers({
         return Chatrooms.find();
     }
 })
+
+Template.chatroomList.rendered = function() {
+
+    //console.log('chatroomList rendered');
+
+}
