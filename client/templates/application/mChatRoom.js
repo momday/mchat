@@ -45,6 +45,7 @@ Template.chatroom.rendered = function() {
         var elName = "#"+this.data._id;
         var el = $(elName);
         grid.add_widget(el, 0, 0, 4, 5, true);
+        adjustGridStackContent(elName);
     }
 }
 
@@ -56,7 +57,8 @@ Template.chatroom.events({
 
          adjustGridStackContent("#" + this._id);
 
-    }
+    },
+
 })
 
 
