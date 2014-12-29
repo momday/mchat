@@ -4,15 +4,15 @@
 # but you can also edit it by hand.
 
 meteor-platform
-accounts-password
 anti:fake
 ian:accounts-ui-bootstrap-3
 iron:router
 less
 pfafman:font-awesome-4
-linto:jquery-ui
 jquery
-mizzao:bootstrap-3
 sacha:spin
 momentjs:moment
+ian:bootstrap-3
+linto:jquery-ui
+accounts-password
 
