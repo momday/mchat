@@ -27,9 +27,9 @@ adjustGridStackContent = function (elementId) {
             totalHeight = mininumHeight;
             var fillRemaining = totalHeight - headHeight - tailHeight - 15;
         } else {
-            var headHeight  = 41; $(prefix  +  ".grid-stack-item-content .panel-heading").height(); + 2*10;
-            var tailHeight  = 51; $(prefix  +  ".grid-stack-item-content .panel-footer").height(); + 2*10;
-            var draggable   = 25;$(prefix  +  ".grid-stack-item .ui-resizable-handle").height();
+            var headHeight  = 41; //$(prefix  +  ".grid-stack-item-content .panel-heading").height(); + 2*10;
+            var tailHeight  = 51; //$(prefix  +  ".grid-stack-item-content .panel-footer").height(); + 2*10;
+            var draggable   = 25; //$(prefix  +  ".grid-stack-item .ui-resizable-handle").height();
 
 
             var fillRemaining = totalHeight - headHeight - tailHeight - draggable;
