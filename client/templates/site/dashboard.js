@@ -1,8 +1,8 @@
 Template.dashboard.helpers({
 
-    /*chatroomCount: function() {
+    chatroomCount: function() {
         return Chatrooms.find().count();
-    },*/
+    },
 
 });
 
