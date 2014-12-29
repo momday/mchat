@@ -36,7 +36,7 @@ if (!Meteor.settings.deployed || Meteor.settings.deployed!=='true') {
                 ownerId: claire._id,
                 owner: claire.profile.name,
                 authorPicUrl: claire.profile.picUrl,
-                private: true,
+                isPrivate: true,
                 submitted: creationDate,
                 chatHistory:[
                     {
@@ -54,7 +54,9 @@ if (!Meteor.settings.deployed || Meteor.settings.deployed!=='true') {
                     message: "Cool chat"
                 }
                 ],
-                totalMessages: 2
+                totalMessages: 2,
+                participants: [claire._id, momday._id]
+
 
             });
 
@@ -65,7 +67,7 @@ if (!Meteor.settings.deployed || Meteor.settings.deployed!=='true') {
                 ownerId: momday._id,
                 owner: momday.profile.name,
                 authorPicUrl: momday.profile.picUrl,
-                private: true,
+                isPrivate: true,
                 submitted: creationDate,
                 chatHistory:[
                     {
@@ -83,7 +85,9 @@ if (!Meteor.settings.deployed || Meteor.settings.deployed!=='true') {
                     message: "Second Cool chat"
                 }
                 ],
-                totalMessages: 2
+                totalMessages: 2,
+                participants: [claire._id, momday._id]
+
 
             });
 
@@ -95,7 +99,7 @@ if (!Meteor.settings.deployed || Meteor.settings.deployed!=='true') {
                 ownerId: momday._id,
                 owner: momday.profile.name,
                 authorPicUrl: momday.profile.picUrl,
-                private: true,
+                isPrivate: false,
                 submitted: creationDate,
                 chatHistory:[
                     {
@@ -113,7 +117,8 @@ if (!Meteor.settings.deployed || Meteor.settings.deployed!=='true') {
                     message: "Third Cool chat"
                 }
                 ],
-                totalMessages: 2
+                totalMessages: 2,
+                participants: [claire._id, momday._id]
 
             });
 

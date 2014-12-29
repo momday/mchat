@@ -1,6 +1,10 @@
 Template.chatroomList.helpers({
     chatrooms: function() {
         return Chatrooms.find();
+    },
+
+    tempo: function() {
+        return Session.get('refresh');
     }
 })
 

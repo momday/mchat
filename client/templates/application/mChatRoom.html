@@ -21,16 +21,16 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <!--<span class="glyphicon glyphicon-comment"></span> --> 
-                            <strong class='yellow'>{{hashTag}}</strong> started by {{owner}}
+                                <strong class='yellow'>{{hashTag}}</strong> started by {{owner}} - {{privatize true}}
                                 <div class="btn-group pull-right">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                                         <span class="glyphicon glyphicon-chevron-down"></span>
                                     </button>
                                     <ul class="dropdown-menu slidedown">
-                                        <li><a href=""><span class="glyphicon glyphicon-ok-sign">
-                                        </span>Make Public</a></li>
+                                        <li id='go-public'><a href=""><span class="glyphicon glyphicon-ok-sign">
+                                        </span>Make {{privatize false}}</a></li>
                                         <li class="divider"></li>
-                                        <li><a href=""><span class="glyphicon glyphicon-remove">
+                                        <li id='delete-chatroom'><a href=""><span class="glyphicon glyphicon-remove">
                                         </span>Delete</a></li>
                                     </ul>
                                 </div>
