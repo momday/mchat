@@ -36,12 +36,27 @@ adjustGridStackContent = function (elementId) {
             //fillRemaining = 100;
         }
 
-        console.log('grid-stack-item height: ' + gridstackHeight);
+        /*console.log('grid-stack-item height: ' + gridstackHeight);
         console.log('totalHeight= ' + totalHeight);
         console.log('headHeight= ' + headHeight);
         console.log('tailHeight= ' + tailHeight);
         console.log('draggable= ' + draggable);
-        console.log('fillRemaining: ' + fillRemaining);
+        console.log('fillRemaining: ' + fillRemaining);*/
 
         $(prefix  +  ".grid-stack-item-content .panel-body").css('height',fillRemaining);
+}
+
+
+
+sanitizeHashtag = function(hashtag) {
+
+
+    // If result is not null then check that the first
+    // character is an hash key '#'
+    if (hashtag.length != 0)
+        if (hashtag.charAt(0) !== '#')
+            hashtag = '#'+hashtag;
+
+    return hashtag;
+
 }
