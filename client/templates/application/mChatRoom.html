@@ -21,10 +21,12 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <!--<span class="glyphicon glyphicon-comment"></span> --> 
-                                <strong class='yellow'>{{hashTag}}</strong> started by {{owner}} - {{privatize true}}
+                                <strong class='yellow'>{{hashTag}}</strong> started by {{owner}} - <strong>{{privatize true}}</strong>
+
+                               {{#if isOwner}}
                                 <div class="btn-group pull-right">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        <span class="glyphicon glyphicon-chevron-down"></span>
+<i class="fa fa-chevron-down"></i>
                                     </button>
                                     <ul class="dropdown-menu slidedown">
                                         <li id='go-public'><a href=""><span class="glyphicon glyphicon-ok-sign">
@@ -34,6 +36,7 @@
                                         </span>Delete</a></li>
                                     </ul>
                                 </div>
+                                {{/if}}
                             </div>
 
 

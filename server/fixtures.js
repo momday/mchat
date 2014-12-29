@@ -61,6 +61,38 @@ if (!Meteor.settings.deployed || Meteor.settings.deployed!=='true') {
             });
 
 
+
+            var chatroomId = Chatrooms.insert({
+                hashTag: '#secretService',
+                ownerId: claire._id,
+                owner: claire.profile.name,
+                authorPicUrl: claire.profile.picUrl,
+                isPrivate: true,
+                submitted: creationDate,
+                chatHistory:[
+                    {
+                    messageId: claireId + "-0",
+                    ownerId: claireId,
+                    owner: claire.profile.name,
+                    createdAt: creationDate,
+                    message: "First chat"
+                },
+                {
+                    messageId: claireId + "-1",
+                    ownerId: claireId,
+                    owner: claire.profile.name,
+                    createdAt: creationDate,
+                    message: "Cool chat"
+                }
+                ],
+                totalMessages: 2,
+                participants: [claire._id]
+
+
+            });
+
+
+
             creationDate = new Date(now - 10 * 3600 * 1000);
             var chatroomId2 = Chatrooms.insert({
                 hashTag: '#investment',
@@ -86,7 +118,7 @@ if (!Meteor.settings.deployed || Meteor.settings.deployed!=='true') {
                 }
                 ],
                 totalMessages: 2,
-                participants: [claire._id, momday._id]
+                participants: [momday._id]
 
 
             });

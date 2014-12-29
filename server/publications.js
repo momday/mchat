@@ -1,4 +1,5 @@
 
+// Publish only the public chatroom.
 Meteor.publish('chatrooms', function(){
     //check(chatRoomId, String);
 
@@ -10,29 +11,28 @@ Meteor.publish('chatrooms', function(){
 });
 
 
+// Publish the chatrooms whose owner is the current user.
+Meteor.publish('participated-chatrooms', function() {
 
-Meteor.publish('participated-chatrooms', function(options) {
-    check(options, {
-        /*sort: Object,
-        limit: Number,*/
-        //isPrivate : Boolean,
-        userId: String
-    });
-
-    //return Chatrooms.find({}, options);
-    return Chatrooms.find({participants: {$in: [options.userId]}});
+    var userId = this.userId;
+    check(userId, String);
+    return Chatrooms.find({participants: {$in: [userId]}});
 
 });
 
-Meteor.publish('my-chatrooms', function(options) {
-    check(options, {
-        /*sort: Object,
-        limit: Number,*/
+// Publish the chatrooms where the current user is a participant.
+Meteor.publish('my-chatrooms', function() {
+
+    var userId = this.userId;
+    check(userId, String);
+    /*check(options, {
+        [>sort: Object,
+        limit: Number,<]
         //isPrivate : Boolean,
         userId: String
-    });
+    });*/
 
     //return Chatrooms.find({}, options);
-    return Chatrooms.find({ownerId: options.userId});
+    return Chatrooms.find({ownerId: userId});
 
 });

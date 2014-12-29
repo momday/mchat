@@ -19,7 +19,11 @@ Template.chatroom.helpers({
         } else {
             return this.isPrivate?'Public':'Private';
         }
-    }
+    },
+
+    isOwner: function() {
+        return Meteor.userId() === this.ownerId;
+    },
 });
 
 /*This function is called when the chatroom is rendered and will
@@ -118,7 +122,7 @@ Template.chatroom.events({
                     if (error){
                         throwError(error.reason);
                     } else {
-                        console.log('went public');
+                        //console.log('went public');
                     }
                 });
 
