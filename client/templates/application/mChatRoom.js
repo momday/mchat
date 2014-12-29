@@ -29,8 +29,8 @@ scroll down the chatroom to the last message.
 Template.chatroom.rendered = function() {
 
 
-    // Scroll down the chatroom to the last message when it's renedered.
-    var innerId = '#'+this.data._id+'-inner-content';
+    // Scroll down the chatroom to the last message when it's rendered.
+    var innerId = '#'+this.data._id+'-panel-content';
     var scr = $(innerId)[0].scrollHeight;
     $(innerId).animate({scrollTop: scr},1000);
 

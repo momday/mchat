@@ -4,6 +4,19 @@ Template.chatMessage.helpers({
   elapseTime: function() {
       var elapse = moment(this.createdAt) - moment(new Date());
       return moment.duration(elapse).humanize();
+  },
+  // If the message owner is the owner of the chat then put it to the right
+  // In the html file, the parentContext is represented by '..'
+  roleSide: function(parentContext) {
+        if (parentContext.ownerId == this.ownerId) {
+            return 'left';
+        } else {
+            return 'right';
+        }
+  },
+
+  ownerInitial: function() {
+      return this.owner.charAt(0).toUpperCase();
   }
 })
 
@@ -30,7 +43,8 @@ Template.chatMessage.rendered = function() {
             $(id).focus();
 
             // Using jQuery to get the immediate parent.
-            var parent = $(id).parent();
+            // Because this is a list, we need to call parent() twice.
+            var parent = $(id).parent().parent();
 
             // There is a weird bug about dynamically getting the
             // scrollHeight. Sometime, it seems to get stuck and not

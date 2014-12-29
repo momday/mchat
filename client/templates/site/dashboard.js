@@ -10,8 +10,9 @@ Template.dashboard.helpers({
 
 Template.dashboard.rendered = function() {
     var options = {
-        cell_height: 80,
-        vertical_margin: 15,
+        /*cell_height: 80,
+        vertical_margin: 15,*/
+        animate: true
     };
     $('.grid-stack').gridstack(options);
 

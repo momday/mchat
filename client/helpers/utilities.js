@@ -17,22 +17,31 @@ adjustGridStackContent = function (elementId) {
             prefix = elementId + " ";
         }
 
+        var gridstackHeight = $(prefix  +  ".grid-stack-item-content").height();
         var totalHeight = $(prefix  +  ".grid-stack-item-content").height();
         if (totalHeight <= mininumHeight) {
-            var headHeight  = 20;
-            var tailHeight  = 20;
+            // Those values are temporary.
+            // TODO: need to figure out the right value
+            var headHeight  = 40;
+            var tailHeight  = 40;
             totalHeight = mininumHeight;
             var fillRemaining = totalHeight - headHeight - tailHeight - 15;
         } else {
-            var headHeight  = $(prefix  +  ".grid-stack-item-content .header").height();
-            var tailHeight  = $(prefix  +  ".grid-stack-item-content .tail").height();
-            var fillRemaining = totalHeight - headHeight - tailHeight - 15;
+            var headHeight  = 41; $(prefix  +  ".grid-stack-item-content .panel-heading").height(); + 2*10;
+            var tailHeight  = 51; $(prefix  +  ".grid-stack-item-content .panel-footer").height(); + 2*10;
+            var draggable   = 25;$(prefix  +  ".grid-stack-item .ui-resizable-handle").height();
+
+
+            var fillRemaining = totalHeight - headHeight - tailHeight - draggable;
+            //fillRemaining = 100;
         }
 
-        /*console.log('totalHeight= ' + totalHeight);
+        console.log('grid-stack-item height: ' + gridstackHeight);
+        console.log('totalHeight= ' + totalHeight);
         console.log('headHeight= ' + headHeight);
         console.log('tailHeight= ' + tailHeight);
-        console.log('fillRemaining: ' + fillRemaining);*/
+        console.log('draggable= ' + draggable);
+        console.log('fillRemaining: ' + fillRemaining);
 
-        $(prefix  +  ".grid-stack-item-content .content").css('height',fillRemaining);
+        $(prefix  +  ".grid-stack-item-content .panel-body").css('height',fillRemaining);
 }

@@ -13,42 +13,54 @@
                      This element is given the _id of the chatroom object-->
                 <div class="grid-stack-item" data-gs-width="4"
                      data-gs-height="5" data-gs-auto-position=true 
-                     id='{{_id}}' 
+                     id='{{_id}}'  data-gs-no-resize=false
+                     data-gs-animate=true data-gs-no-move=false
                      data-gs-min-height="3" data-gs-min-width="3">
                     <div class="grid-stack-item-content">
-                        <!--header-->
-                        <div class="header">
-                            <p>{{hashTag}}</p>
-                        Created by: {{owner}}
-                        </div>
 
-                        <!--body-->
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <!--<span class="glyphicon glyphicon-comment"></span> --> 
+                            <strong class='yellow'>{{hashTag}}</strong> started by {{owner}}
+                                <div class="btn-group pull-right">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-chevron-down"></span>
+                                    </button>
+                                    <ul class="dropdown-menu slidedown">
+                                        <li><a href=""><span class="glyphicon glyphicon-ok-sign">
+                                        </span>Make Public</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href=""><span class="glyphicon glyphicon-remove">
+                                        </span>Delete</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
                         <!--
                             This body is referenced by a UNIQUE id made of the
                             chatroom _id concatenated with "-inner-content"
                             This id is called by the template rendered callback.
                         -->
-                        <div class="content" 
-                             id='{{_id}}-inner-content'>
-                        <!-- The chat history is provided by the helper 
-                             'messages'.
-                             By design the chat history is an array of messages 
-                             embedded into a field of the chatroom document.
-                             The 'messages' helper just returns that array. -->
-                            {{#each messages}}
-                                <!--For each message in the chat history,
-                                display each message using 
-                                the chatMessage template-->
-                                {{> chatMessage }}
-                            {{/each}}
+                        <div class="panel-body" id='{{_id}}-panel-content'>
+                                <ul class="chat">
+                                    {{#each messages}}
+                                    <!--For each message in the chat history,
+                                        display each message using 
+                                        the chatMessage template -->
+                                        {{> chatMessage }}
+                                    {{/each}}
+                                </ul>
+                            </div>
 
+
+                            <div class="panel-footer">
+
+                                {{> addChat}}
+
+                            </div>
                         </div>
 
-                        <!-- bottom -->
-                        <div class="tail">
-                            <!--Displaying the addChat template-->
-                            {{> addChat}}
-                        </div>
                     </div>
                 </div>
 

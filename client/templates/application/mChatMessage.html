@@ -1,67 +1,18 @@
 <template name='chatMessage'>
 
+<li class="{{roleSide ..}} clearfix" id={{messageId}}><span class="chat-img pull-{{roleSide ..}}" >
 
-<div class="chat-box-timeline" id={{messageId}}>
-        <!--<img class="img-responsive img-circle avatar" src="{{authorPicUrl}}" />-->
-
-        <div class="message">
-            <div class="panel panel-shadow panel-white">
-                <div class="panel-body panel-arrow-left">
-<!--<a href="{{pathFor 'postPage'}}">-->
-                    <div class="chat-box-timeline-title">
-                        <span class="label label-success-lt">POST</span>
-                        <strong>{{author}}:</strong>
-                        <!--<span>{{title}} </span>-->
-
-                        <div class="pull-right text-semi">
-                            <i class="fa fa-clock-o"> {{elapseTime}} ago</i> 
-                        </div>
-                    </div>
-                    <!--</a>-->
-
-                    <div class="chat-box-timeline-content">
-                        <blockquote>
-                            {{message}}
-                        </blockquote>
-                    </div>
-
-                    <div class="chat-box-timeline-footer">
-
-                        <!--<a href="#" rel="tooltip" title="Bookmark">
-                            <i class="fa fa-bookmark"></i>
-                        </a>-->
-
-                        {{#if ownPost}}<a href="{{pathFor 'postEdit'}}"><i class="fa fa-edit"></i>Edit</a>{{/if}}
-                        {{#if commentCount}}<a href="{{pathFor 'postPage'}}"><i class="fa fa-comment"></i> {{pluralize commentCount 'comment'}}</a>{{/if}}
-
-                        {{#if ownPost}}<a href="#" class="pull-right" rel="tooltip" title="Delete">
-                            <i class="fa fa-trash-o"></i>
-                        </a>{{/if}}
-
-                        <div>
-                            <a href="#" rel="tooltip" title="Download">
-                                <i class="fa fa-paperclip"></i> document.pdf
-                            </a>
-
-
-                        <a href="#" class="pull-right" rel="tooltip" title="Delete">
-        {{votes}}
-
-                            <i class="fa fa-plus-circle upvote {{upvotedClass}}"></i>
-        <!--<a href="#" class="upvote btn btn-default ">⬆</a>-->
-                        </a>
-                        </div>
-                        {{ parentHelper}}
-                        {{#if editView}}
-                        {{> commentSubmit}}
-                        {{/if}}
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
+    <img src="http://placehold.it/50/55C1E7/fff&text={{ownerInitial}}" alt="User Avatar" class="img-circle" />
+</span>
+<div class="chat-body clearfix">
+    <div class="header">
+        <strong class="primary-font">{{owner}}</strong> <small class="pull-right text-muted">
+            <span class="glyphicon glyphicon-time"></span>{{elapseTime}}</small>
     </div>
-
+    <p>
+    {{message}}
+    </p>
+</div>
+</li>
 
 </template>
