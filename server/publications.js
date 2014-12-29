@@ -11,14 +11,28 @@ Meteor.publish('chatrooms', function(){
 
 
 
+Meteor.publish('participated-chatrooms', function(options) {
+    check(options, {
+        /*sort: Object,
+        limit: Number,*/
+        //isPrivate : Boolean,
+        userId: String
+    });
+
+    //return Chatrooms.find({}, options);
+    return Chatrooms.find({participants: {$in: [options.userId]}});
+
+});
 
 Meteor.publish('my-chatrooms', function(options) {
     check(options, {
         /*sort: Object,
         limit: Number,*/
         //isPrivate : Boolean,
-        ownerId: String
+        userId: String
     });
 
-    return Chatrooms.find({}, options);
+    //return Chatrooms.find({}, options);
+    return Chatrooms.find({ownerId: options.userId});
+
 });
