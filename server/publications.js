@@ -15,8 +15,12 @@ Meteor.publish('chatrooms', function(){
 Meteor.publish('participated-chatrooms', function() {
 
     var userId = this.userId;
-    check(userId, String);
-    return Chatrooms.find({participants: {$in: [userId]}});
+    //if check(userId, String);
+
+    if (!userId)
+        return [];
+    else
+        return Chatrooms.find({participants: {$in: [userId]}});
 
 });
 
@@ -24,7 +28,10 @@ Meteor.publish('participated-chatrooms', function() {
 Meteor.publish('my-chatrooms', function() {
 
     var userId = this.userId;
-    check(userId, String);
+
+    if (!userId)
+        return [];
+    //check(userId, String);
     /*check(options, {
         [>sort: Object,
         limit: Number,<]
@@ -33,6 +40,7 @@ Meteor.publish('my-chatrooms', function() {
     });*/
 
     //return Chatrooms.find({}, options);
-    return Chatrooms.find({ownerId: userId});
+    else
+        return Chatrooms.find({ownerId: userId});
 
 });

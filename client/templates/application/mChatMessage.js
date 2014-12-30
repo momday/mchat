@@ -7,6 +7,11 @@ Template.chatMessage.helpers({
   },
   // If the message owner is the owner of the chat then put it to the right
   // In the html file, the parentContext is represented by '..'
+  // There are 2 ways to access the parent context:
+  // Either passing it by argument like in this example or calling the method:
+  // Template.parentData(n) wher n is the level number beyond the current
+  // template.
+  // To be used in another example.
   roleSide: function(parentContext) {
         if (parentContext.ownerId == this.ownerId) {
             return 'left';
