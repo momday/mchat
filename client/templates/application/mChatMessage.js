@@ -22,7 +22,22 @@ Template.chatMessage.helpers({
 
   ownerInitial: function() {
       return this.owner.charAt(0).toUpperCase();
-  }
+  },
+
+  image: function() {
+      console.log(Template.parentData(1));
+      console.log('parent onwerId: ');
+      console.log(Template.parentData(1).ownerId);
+      console.log('message ownerId: ' + this.ownerId);
+
+      if (Template.parentData(1).ownerId !== this.ownerId) {
+          return "http://placehold.it/50/FA6F57/fff&text=" + this.owner.charAt(0).toUpperCase();
+      } else {
+          return "http://placehold.it/50/55C1E7/fff&text=" + this.owner.charAt(0).toUpperCase();
+      }
+
+  },
+
 })
 
 /*This rendered callback function will scroll down each chat room to the
